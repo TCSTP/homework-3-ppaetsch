@@ -6,9 +6,14 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import tcs.app.dev.R
 import tcs.app.dev.homework1.data.Cart
 import tcs.app.dev.homework1.data.Discount
+import tcs.app.dev.homework1.data.MockData
 import tcs.app.dev.homework1.data.Shop
+import tcs.app.dev.homework1.data.plus
+
 
 /**
  * # Homework 3 — Shop App
@@ -100,4 +105,28 @@ fun ShopScreen(
 ) {
     var cart by rememberSaveable { mutableStateOf(Cart(shop = shop)) }
 
+    MainScreen(stringResource(R.string.name_shop),shop, availableDiscounts, cart = cart, updateCart = { cart = it }, modifier)
+
+
+    /*var items = shop.items.toList()
+    cart = cart.plus(items[0])
+    cart = cart.plus(items[0])
+    cart = cart.plus(items[4])
+    cart = cart.plus(items[4])
+    cart = cart.plus(MockData.ExampleDiscounts[0])
+    cart = cart.plus(MockData.ExampleDiscounts[3])
+    CartScreen(MockData.ExampleShop,cart, updateCart = { cart = it }, modifier)*/
+
+    /*
+    Since I couldn't get the Cart Button to work, I created a small bit of data to build the
+    CartScreen and see if it works correctly.
+     */
+
+    /*
+    Tasks still missing:
+        - Cart Button doesn't open Cart Screen
+        - Buttons in Cart still reacting wrong
+        - Cart total doesn't calculate with discounts
+        - Pay Button doesn't work
+     */
 }
